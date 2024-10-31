@@ -1,13 +1,25 @@
 package hello.helloSpring;
 
+import hello.helloSpring.repository.JdbcMemberRepository;
+import hello.helloSpring.repository.JdbcTemplateMemberRepository;
 import hello.helloSpring.repository.MemberRepository;
 import hello.helloSpring.repository.MemoryMemberRepository;
 import hello.helloSpring.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.sql.DataSource;
+
 @Configuration
 public class SpringConfig {
+
+	DataSource dataSource;
+
+	@Autowired
+	public SpringConfig(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
 
 	@Bean
 	public MemberService memberService() {
@@ -16,6 +28,8 @@ public class SpringConfig {
 
 	@Bean
 	public MemberRepository memberRepository() {
-		return new MemoryMemberRepository();
+//		return new MemoryMemberRepository();
+//		return new JdbcMemberRepository(dataSource); //새로 만든 JdbcMemberRepository로 변경 및 dataSource 주입
+		return new JdbcTemplateMemberRepository(dataSource);
 	}
 }
