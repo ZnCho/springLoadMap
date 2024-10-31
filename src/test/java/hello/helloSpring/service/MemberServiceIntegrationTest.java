@@ -21,7 +21,7 @@ class MemberServiceIntegrationTest { //스프링 이용해서 db까지 연결해
 	@Autowired MemberService memberService;
 	@Autowired MemberRepository memberRepository;
 
-	//	@Commit //이건 테스트 끝나도 DB에 남음
+//	@Commit //이건 테스트 끝나도 DB에 남음
 	@Test
 	void 회원가입() {
 		//given
