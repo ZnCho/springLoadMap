@@ -22,22 +22,29 @@ public class SpringConfig {
 //		this.dataSource = dataSource;
 //	}
 
-	private EntityManager em;
-	@Autowired
-	public SpringConfig(EntityManager em) {
-		this.em = em;
+//	private EntityManager em;
+//	@Autowired
+//	public SpringConfig(EntityManager em) {
+//		this.em = em;
+//	}
+
+	private final MemberRepository memberRepository;
+	@Autowired //생성자가 1개니까 생략해도 됨
+	public SpringConfig(MemberRepository memberRepository) {
+		this.memberRepository = memberRepository;
 	}
 
 	@Bean
 	public MemberService memberService() {
-		return new MemberService(memberRepository());
+//		return new MemberService(memberRepository());
+		return new MemberService(memberRepository);
 	}
 
-	@Bean
-	public MemberRepository memberRepository() {
+//	@Bean
+//	public MemberRepository memberRepository() {
 //		return new MemoryMemberRepository();
 //		return new JdbcMemberRepository(dataSource); //새로 만든 JdbcMemberRepository로 변경 및 dataSource 주입
 //		return new JdbcTemplateMemberRepository(dataSource);
-		return new JpaMemberRepository(em);
-	}
+//		return new JpaMemberRepository(em);
+//	}
 }
