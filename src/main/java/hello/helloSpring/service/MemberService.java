@@ -23,6 +23,7 @@ public class MemberService {
 	 * 회원 가입
 	 */
 	public Long join(Member member) {
+		long start = System.currentTimeMillis(); //회원 가입에 드는 시간을 측정하고 싶을 떄
 		validateDupliateMember(member); //중복 회원 검증
 		memberRepository.save(member);
 		return member.getId();
