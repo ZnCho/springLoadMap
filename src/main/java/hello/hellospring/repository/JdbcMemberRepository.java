@@ -1,6 +1,6 @@
-package hello.helloSpring.repository;
+package hello.hellospring.repository;
 
-import hello.helloSpring.domain.Member;
+import hello.hellospring.domain.Member;
 import org.springframework.jdbc.datasource.DataSourceUtils;
 
 import javax.sql.DataSource;
