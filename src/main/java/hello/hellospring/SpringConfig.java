@@ -1,18 +1,10 @@
-package hello.helloSpring;
+package hello.hellospring;
 
-import hello.helloSpring.aop.TimeTraceAop;
-import hello.helloSpring.repository.JdbcMemberRepository;
-import hello.helloSpring.repository.JdbcTemplateMemberRepository;
-import hello.helloSpring.repository.JpaMemberRepository;
-import hello.helloSpring.repository.MemberRepository;
-import hello.helloSpring.repository.MemoryMemberRepository;
-import hello.helloSpring.service.MemberService;
-import jakarta.persistence.EntityManager;
+import hello.hellospring.repository.MemberRepository;
+import hello.hellospring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import javax.sql.DataSource;
 
 @Configuration
 public class SpringConfig {

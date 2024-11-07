@@ -1,6 +1,5 @@
-package hello.helloSpring.controller;
+package hello.hellospring.controller;
 
-import hello.helloSpring.service.MemberService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
